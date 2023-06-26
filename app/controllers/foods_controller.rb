@@ -3,11 +3,17 @@ class FoodsController < ApplicationController
 
   # GET /foods or /foods.json
   def index
-    @foods = Food.all
+    # @foods = Food.all
+    @foods = current_user.foods
   end
 
   # GET /foods/1 or /foods/1.json
-  def show; end
+  def show
+    @food = Food.find(params[:id])
+    @food_quantity = @food.quantity
+    @food_price = @food.price
+    @food_measurement_unit = @food.measurement_unit
+  end
 
   # GET /foods/new
   def new
@@ -59,7 +65,7 @@ class FoodsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_food
-    @food = Food.find(params[:id])
+    # @food = Food.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
