@@ -8,8 +8,8 @@
 user1 = User.create(name: 'Jaime', email: 'jaimevillegas296@gmail.com', password: 'test123')
 user2 = User.create(name: 'Dico', email: 'dicodiaz@gmail.com', password: 'test123')
 
-food1 = Food.create(name: 'Borojo', measurement_unit: 'Units', price: 5.0, quantity: 2, user_id: user1.id)
-food2 = Food.create(name: 'Platano', measurement_unit: 'Units', price: 3.0, quantity: 3, user_id: user2.id)
+food1 = Food.create(name: 'Borojo', measurement_unit: 'Units', price: 5.0, quantity: 2, user: user1)
+food2 = Food.create(name: 'Platano', measurement_unit: 'Units', price: 3.0, quantity: 3, user: user2)
 
 recipe1 = Recipe.create(name: 'Jugo de borojo', preparation_time: '20 minutes', cooking_time: '5 minutes',
                         description: 'Agregue agua y fruta y ponga a licuar', public: true, user_id: user1.id)
