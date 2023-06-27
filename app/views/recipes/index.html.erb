@@ -1,14 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Recipes</h1>
-
-<div id="recipes">
-  <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New recipe", new_recipe_path %>
+<main id="recipes" class="container mt-3">
+  <%= button_to "New recipe", new_recipe_path, method: :get, class: "btn btn-primary mb-3" %>
+  <div class="row row-cols-1 px-2 px-md-0">
+    <% @recipes.each do |recipe| %>
+      <%= render('recipe_card', recipe:) %>
+    <% end %>
+  </div>
+</main>
