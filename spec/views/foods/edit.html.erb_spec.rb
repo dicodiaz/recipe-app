@@ -7,7 +7,7 @@ RSpec.describe 'foods/edit', type: :view do
       measurement_unit: 'Pounds',
       price: 1.5,
       quantity: 1,
-      user: user
+      user:
     )
   end
 

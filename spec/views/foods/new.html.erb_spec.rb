@@ -17,7 +17,7 @@ RSpec.describe 'foods/new', type: :view do
                     measurement_unit: 'MyString',
                     price: 1.5,
                     quantity: 1,
-                    user: user
+                    user:
                   ))
   end
 
