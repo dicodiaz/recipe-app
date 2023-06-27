@@ -1,8 +1,12 @@
-<div id="<%= dom_id food %>">
-  <p>
+<div
+  class="container mx-auto rounded p-4"
+  style="width: max-content;"
+  id="<%= dom_id food %>"
+>
+  <h3>
     <strong>Name:</strong>
     <%= food.name %>
-  </p>
+  </h3>
 
   <p>
     <strong>Measurement unit:</strong>
@@ -23,5 +27,4 @@
     <strong>User:</strong>
     <%= food.user_id %>
   </p>
-
 </div>
