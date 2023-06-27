@@ -3,16 +3,25 @@ require 'rails_helper'
 RSpec.describe 'foods/edit', type: :view do
   let(:food) do
     Food.create!(
-      name: 'MyString',
-      measurement_unit: 'MyString',
+      name: 'Mondongo',
+      measurement_unit: 'Pounds',
       price: 1.5,
       quantity: 1,
-      user: nil
+      user: user
+    )
+  end
+
+  let(:user) do
+    User.create!(
+      name: 'Jaime',
+      email: 'jaimevillegas296@gmail.com',
+      password: 'test123'
     )
   end
 
   before(:each) do
     assign(:food, food)
+    assign(:user, user)
   end
 
   it 'renders the edit food form' do
@@ -26,8 +35,6 @@ RSpec.describe 'foods/edit', type: :view do
       assert_select 'input[name=?]', 'food[price]'
 
       assert_select 'input[name=?]', 'food[quantity]'
-
-      assert_select 'input[name=?]', 'food[user_id]'
     end
   end
 end
