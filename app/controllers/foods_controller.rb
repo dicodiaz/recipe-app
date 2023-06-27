@@ -3,7 +3,6 @@ class FoodsController < ApplicationController
 
   # GET /foods or /foods.json
   def index
-    # @foods = current_user.foods
     @foods = Food.where(user: current_user)
   end
 
@@ -14,9 +13,6 @@ class FoodsController < ApplicationController
     @food = Food.new
   end
 
-  # GET /foods/1/edit
-  def edit; end
-
   # POST /foods or /foods.json
   def create
     @food = Food.new(food_params)
@@ -25,15 +21,6 @@ class FoodsController < ApplicationController
       redirect_to '/foods', flash: { success: 'Food was successfully created.' }
     else
       render :new, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /foods/1 or /foods/1.json
-  def update
-    if @food.update(food_params)
-      redirect_to '/foods', flash: { success: 'Food was successfully updated.' }
-    else
-      render :edit, status: :unprocessable_entity
     end
   end
 
