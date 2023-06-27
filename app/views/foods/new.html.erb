@@ -1,9 +1,14 @@
-<h1>New food</h1>
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <h1>NEW FOOD</h1>
+  <h3>Create a new food for the user <%= current_user.name %></h3>
+</div>
 
-<%= render "form", food: @food %>
+<div class="d-flex justify-content-center">
+  <%= render "form", food: @food %>
+</div>
 
-<br>
+<br />
 
-<div>
+<div class="d-flex justify-content-center">
   <%= link_to "Back to foods", foods_path %>
 </div>

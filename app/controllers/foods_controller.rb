@@ -3,7 +3,6 @@ class FoodsController < ApplicationController
 
   # GET /foods or /foods.json
   def index
-    # @foods = Food.all
     @foods = current_user.foods
   end
 
@@ -70,6 +69,7 @@ class FoodsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity).merge(user: current_user)
+    # params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
   end
 end

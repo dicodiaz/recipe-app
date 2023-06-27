@@ -1,5 +1,5 @@
 <div class='container'>
-  <h1>Foods</h1>
+  <h1>FOODS</h1>
   <h3>You are logged in as <%= current_user.name %></h2>
 </div>
 
@@ -32,7 +32,7 @@
               <td><span>$</span><%= food.price %></td>
               <td><%= food.quantity %></td>
               <td>
-                <%= link_to 'Delete', food, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to 'Delete', food, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' %>
               </td>
             </tr>
           <% end %>

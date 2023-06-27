@@ -1,17 +1,12 @@
-          <td><%= food.name %></td>
-          <td><%= food.measurement_unit %></td>
-          <td><%= food.price %></td>
-          <td><%= food.quantity %></td>
-          <td><%= food.user_id %></td>
-          <td><%= link_to 'Show', food %></td>
-          <td><%= link_to 'Edit', edit_food_path(food) %></td>
-          <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-<div id="<%= dom_id food %>">
-  <p>
+<div
+  class="container mx-auto rounded p-4"
+  style="width: max-content;"
+  id="<%= dom_id food %>"
+>
+  <h3>
     <strong>Name:</strong>
     <%= food.name %>
-  </p>
+  </h3>
 
   <p>
     <strong>Measurement unit:</strong>
@@ -32,5 +27,4 @@
     <strong>User:</strong>
     <%= food.user_id %>
   </p>
-
 </div>
