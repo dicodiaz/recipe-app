@@ -1,9 +1,4 @@
-<h1>New recipe</h1>
-
-<%= render "form", recipe: @recipe %>
-
-<br>
-
-<div>
-  <%= link_to "Back to recipes", recipes_path %>
-</div>
+<main id="new_recipe" class="container mt-3">
+  <%= render "form", recipe: @recipe %>
+  <%= button_to "Back to recipes", recipes_path, class: "btn btn-secondary mb-3" %>
+</main>
