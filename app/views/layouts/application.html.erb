@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>RecipeApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,8 +11,14 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% flash.each do |key, message| %>
+      <div class="alert <%= flash_class(key) %> text-center m-2" role="alert">
+        <%= message %>
+      </div>
+    <% end %>
+    <% if current_user %>
+      <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "btn btn-danger m-3") %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
