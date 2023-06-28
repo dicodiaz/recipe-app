@@ -34,8 +34,6 @@ class RecipesController < ApplicationController
     @food_recipes_count = RecipeFood.where(food_id: params[:food_id]).count
   end
 
-
-
   private
 
   def set_recipe
