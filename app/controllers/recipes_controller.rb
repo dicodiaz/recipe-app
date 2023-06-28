@@ -30,7 +30,7 @@ class RecipesController < ApplicationController
   end
 
   def list_public_recipes
-    @public_recipes = Recipe.where(public: true)
+    @public_recipes = Recipe.where(public: true).includes(:user)
     @food_recipes_count = RecipeFood.where(food_id: params[:food_id]).count
   end
 

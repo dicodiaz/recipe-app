@@ -19,4 +19,14 @@ RSpec.describe Recipe, type: :model do
       expect(recipe).not_to be_valid
     end
   end
+
+  context 'methods' do
+    it 'should return the number of food items' do
+      expect(recipe.count_food_recipes).to eq(0)
+    end
+
+    it 'should return the sum of food items' do
+      expect(recipe.sum_foods).to eq(0)
+    end
+  end
 end

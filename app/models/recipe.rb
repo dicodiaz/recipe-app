@@ -8,4 +8,10 @@ class Recipe < ApplicationRecord
   def count_food_recipes
     recipe_foods.count
   end
+
+  def sum_foods
+    sum = 0
+    Recipe.includes(:recipe_foods).find(id).recipe_foods.each { |item| sum += (item.food.price * item.quantity) }
+    sum
+  end
 end
