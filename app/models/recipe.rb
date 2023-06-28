@@ -4,4 +4,8 @@ class Recipe < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
+
+  def count_food_recipes
+    recipe_foods.count
+  end
 end

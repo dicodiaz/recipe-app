@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show destroy]
+  include RecipesHelper
 
   def index
     @recipes = Recipe.where(user: current_user)
@@ -27,6 +28,13 @@ class RecipesController < ApplicationController
 
     redirect_to recipes_url, alert: 'Recipe was successfully destroyed.'
   end
+
+  def list_public_recipes
+    @public_recipes = Recipe.where(public: true)
+    @food_recipes_count = RecipeFood.where(food_id: params[:food_id]).count
+  end
+
+
 
   private
 

@@ -1,0 +1,8 @@
+<main id="public-recipes" class="container">
+  <h1>Public Recipes</h1>
+  <% @public_recipes.each do |recipe| %>
+    <p><%= recipe.name %></p>
+    <p><%= recipe.count_food_recipes %></p>
+    <p>Price: <%= sum_foods(recipe) %></p>
+  <% end %>
+</main>
