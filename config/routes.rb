@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :foods, except: %i[edit update]
   devise_for :users
 
-  get '/public_recipes', to: 'recipes#list_public_recipes'
+  get '/public_recipes', to: 'recipes#public_recipes'
 end

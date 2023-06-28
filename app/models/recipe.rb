@@ -5,13 +5,13 @@ class Recipe < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
 
-  def count_food_recipes
+  def total_food_items
     recipe_foods.count
   end
 
-  def sum_foods
+  def total_price
     sum = 0
     Recipe.includes(:recipe_foods).find(id).recipe_foods.each { |item| sum += (item.food.price * item.quantity) }
-    sum
+    "$#{sum}"
   end
 end

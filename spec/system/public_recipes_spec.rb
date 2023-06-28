@@ -1,11 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Public recipes', type: :system do
-  # before(:each) do
-  #   @user1 = User.create(name: 'test', email: 'test@test.com', password: 'test123')
-  #   login_as(@user, scope: :user)
-  # end
-
   describe 'index page' do
     before(:each) do
       @user1 = User.create(name: 'test', email: 'test@test.com', password: 'test123')
@@ -20,7 +15,7 @@ RSpec.describe 'Public recipes', type: :system do
       visit public_recipes_path
     end
 
-    it 'displays the recipe name and description' do
+    it 'displays the recipe name' do
       expect(page).to have_content(@recipe1.name)
     end
 
