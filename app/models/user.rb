@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :foods
   has_many :recipes
+
+  def select_foods
+    foods.each_with_object([]) { |food, array| array.push(["#{food.name} (#{food.measurement_unit})", food.id]) }
+  end
 end
