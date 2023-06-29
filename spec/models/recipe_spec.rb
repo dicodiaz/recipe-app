@@ -4,8 +4,6 @@ RSpec.describe Recipe, type: :model do
   before(:each) do
     @user = User.create(name: 'user name', email: 'user_email@mail.com', password: 'user_password')
     @recipe = Recipe.create(name: 'recipe name', description: 'recipe description', user: @user)
-    # let(:user) { User.create(name: 'user name', email: 'user_email@mail.com', password: 'user_password') }
-    # let(:recipe) { Recipe.create(name: 'recipe name', description: 'recipe description', user: @user) }
   end
 
   context 'validations' do

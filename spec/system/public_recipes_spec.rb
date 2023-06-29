@@ -24,7 +24,7 @@ RSpec.describe 'Public recipes', type: :system do
     end
 
     it 'displays a counter of food items' do
-      expect(page).to have_content(@recipe1.count_food_recipes)
+      expect(page).to have_content(@recipe1.total_food_items)
     end
 
     it 'should have a link to the recipe and redirects to recipe details' do
