@@ -7,6 +7,7 @@ RSpec.describe 'RecipeFoods', type: :system do
       @food = Food.create(name: 'food name', measurement_unit: 'Grams', price: 2.0, quantity: 3, user: @user)
       @food2 = Food.create(name: 'food2 name', measurement_unit: 'Units', price: 3.0, quantity: 2, user: @user)
       @recipe = Recipe.create(name: 'recipe name', description: 'recipe description', user: @user)
+      login_as(@user, scope: :user)
       visit new_recipe_food_path(recipe_id: @recipe.id)
     end
 
