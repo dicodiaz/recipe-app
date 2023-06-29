@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   get '/public_recipes', to: 'recipes#public_recipes'
+  get '/general_shopping_list', to: 'recipe_foods#index'
+
 end

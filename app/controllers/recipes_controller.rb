@@ -6,7 +6,9 @@ class RecipesController < ApplicationController
     @recipes = Recipe.where(user: current_user)
   end
 
-  def show; end
+  def show
+    session[:return_to] ||= request.fullpath
+  end
 
   def new
     @recipe = Recipe.new
