@@ -3,7 +3,6 @@ class GeneralShoppingListController < ApplicationController
     @user_foods = current_user.foods
     @recipe = Recipe.find_by(id: params[:recipe_id])
     @recipe_ingredients = @recipe.recipe_foods
-    puts '-------------------------------'
     @counter = 0
     @food_price = 0
     @shopping_list_array = []
@@ -17,6 +16,5 @@ class GeneralShoppingListController < ApplicationController
       @food_price += ingredients_price_subtotal
       @shopping_list_array << [recipe_ingredient.food.name, ingredients_substraction, ingredients_price_subtotal]
     end
-    puts '-------------------------------'
   end
 end
