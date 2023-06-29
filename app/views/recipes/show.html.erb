@@ -2,10 +2,10 @@
   <h1 class="text-center mb-3"><%= @recipe.name %></h1>
   <div class="row">
     <div class="col">
-      <% unless @recipe.preparation_time.empty? %>
+      <% unless @recipe.preparation_time.nil? || @recipe.preparation_time.empty? %>
         <p class="mb-2"><strong>Preparation time: </strong><%= @recipe.preparation_time %></p>
       <% end %>
-      <% unless @recipe.cooking_time.empty? %>
+      <% unless @recipe.cooking_time.nil? || @recipe.cooking_time.empty? %>
         <p class="mb-2"><strong>Cooking time: </strong><%= @recipe.cooking_time %></p>
       <% end %>
     </div>
