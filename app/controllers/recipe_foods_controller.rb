@@ -15,7 +15,7 @@ class RecipeFoodsController < ApplicationController
     @recipe_food = RecipeFood.new(recipe_food_params)
 
     if @recipe_food.save
-      redirect_to session.delete(:return_to), flash: { success: 'Ingredient was successfully created.' }
+      redirect_to session.delete(:return_to) || recipes_path, flash: { success: 'Ingredient was successfully created.' }
     else
       flash.now[:error] = @recipe_food.errors.full_messages.to_sentence.prepend('Error(s): ')
       render :new, status: :unprocessable_entity
@@ -26,7 +26,7 @@ class RecipeFoodsController < ApplicationController
     return unless @recipe_food
 
     @recipe_food.destroy
-    redirect_to session.delete(:return_to), alert: 'Ingredient was successfully destroyed.'
+    redirect_to session.delete(:return_to) || recipes_path, alert: 'Ingredient was successfully destroyed.'
   end
 
   private
