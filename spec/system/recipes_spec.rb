@@ -83,7 +83,7 @@ RSpec.describe 'Recipes', type: :system do
 
     it "displays a 'Generate shopping list' button that redirects to /general_shopping_list" do
       click_button('Generate shopping list')
-      expect(page).to have_current_path('/general_shopping_list')
+      expect(page).to have_current_path("/general_shopping_list?recipe_id=#{@recipe.id}")
     end
 
     it "displays an 'Add ingredient' button that redirects to recipe_foods/new with the recipe's id query param" do
