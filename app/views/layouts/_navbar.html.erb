@@ -1,0 +1,39 @@
+<header>
+  <nav class="navbar navbar-expand-md bg-light fixed-top">
+    <div class="container-fluid">
+      <%= link_to "Recipe App", root_path, class: "navbar-brand" %>
+      <div class="row row-cols-auto mx-0 g-0">
+        <% if current_user %>
+          <div class="col">
+            <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm") %>
+          </div>
+          <div class="col d-flex align-items-center ps-2">
+            <%= link_to current_user.name, edit_user_registration_path, class: "link-primary" %>
+          </div>
+        <% elsif controller_name != 'sessions' %>
+          <div class="col">
+            <%= button_to("Log In", new_user_session_path, method: :get, class: "btn btn-success btn-sm") %>
+          </div>
+        <% end %>
+      </div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbar_nav_wrapper"
+        aria-controls="navbar_nav_wrapper"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbar_nav_wrapper" class="collapse navbar-collapse">
+        <div class="navbar-nav ms-auto">
+          <%= navbar_link_to "My foods", foods_path %>
+          <%= navbar_link_to "My recipes", recipes_path %>
+          <%= navbar_link_to "Public Recipes", public_recipes_path %>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

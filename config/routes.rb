@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root to: redirect('/foods', status: 302)
+  resources :general_shopping_list, only: %i[index]
+  resources :recipe_foods, only: %i[new create destroy]
+  resources :recipes, except: %i[edit update]
+  resources :foods, except: %i[edit update]
+  devise_for :users
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get '/public_recipes', to: 'recipes#public_recipes'
 end

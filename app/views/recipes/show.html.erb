@@ -1,0 +1,5 @@
+<% if can? :read, @recipe %>
+  <%= render "recipe", recipe: @recipe %>
+<% else %>
+  <h1 class="text-center">Recipe is private</h1>
+<% end %>

@@ -1,0 +1,13 @@
+<div id="<%= dom_id(recipe) %>" class="card mb-3">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-4 text-center d-flex flex-column justify-content-center">
+        <%= link_to recipe.name, recipe, class: "h5 card-title" %>
+        <%= button_to "Remove", recipe, method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: "btn btn-link p-0" %>
+      </div>
+      <%= link_to recipe, class: "col d-flex align-items-center" do %>
+        <p class="card-text"><%= recipe.description %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

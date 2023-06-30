@@ -1,0 +1,9 @@
+<%= bootstrap_form_with(model: recipe_food) do |form| %>
+  <%= form.number_field :quantity %>
+  <%= form.hidden_field :recipe_id %>
+  <%= form.text_field :recipe, value: recipe_food.recipe.name, disabled: true %>
+  <%= form.select :food_id, recipe_food.recipe.user.select_foods , { label: "Choose your ingredient:" } %>
+  <div class="d-flex justify-content-center mb-3">
+    <%= form.primary "Add ingredient to recipe" %>
+  </div>
+<% end %>

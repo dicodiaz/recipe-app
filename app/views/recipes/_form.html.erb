@@ -1,0 +1,10 @@
+<%= bootstrap_form_with(model: recipe) do |form| %>
+  <%= form.text_field :name %>
+  <%= form.text_field :preparation_time %>
+  <%= form.text_field :cooking_time %>
+  <%= form.text_field :description %>
+  <%= form.check_box :public %>
+  <div class="d-flex justify-content-center mb-3">
+    <%= form.primary %>
+  </div>
+<% end %>

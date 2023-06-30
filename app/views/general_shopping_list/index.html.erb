@@ -1,0 +1,28 @@
+<h1>Shopping List for <%= @recipe.name %></h1>
+<div class="d-flex flex-row justify-content-between">
+  <p class="fs-5">Amount of food items to buy: <%= @counter %></p>
+  <p class="fs-5">Total value of food needed: $<%= @food_price %></p>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @shopping_list_array.each do |shopping_item| %>
+        <tr>
+          <th><%= shopping_item[0] %></th>
+          <th><%= shopping_item[1] %></th>
+          <th>$<%= shopping_item[2] %></th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= link_to "Go Back", recipe_path(@recipe), class: 'btn btn-primary' %>
