@@ -89,7 +89,8 @@ To run the project locally, follow these steps.
 In order to run this project you need to:
 
 - Install [Git](https://git-scm.com/)
-- Install [Node](https://nodejs.org/en/)
+- Install [Ruby](https://www.ruby-lang.org/en/)
+- Install Rails gem `gem install rails`
 - Install a code editor, We suggest [VsCode](https://code.visualstudio.com/)
 
 ### Setup
