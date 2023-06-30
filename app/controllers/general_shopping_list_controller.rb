@@ -14,7 +14,9 @@ class GeneralShoppingListController < ApplicationController
       ingredients_substraction = recipe_ingredient.quantity - user_ingredient.quantity
       ingredients_price_subtotal = (ingredients_substraction * user_ingredient.price).round(2)
       @food_price += ingredients_price_subtotal
-      @shopping_list_array << [recipe_ingredient.food.name, ingredients_substraction, ingredients_price_subtotal]
+      @shopping_list_array << [recipe_ingredient.food.name,
+                               "#{ingredients_substraction} #{user_ingredient.measurement_unit}",
+                               ingredients_price_subtotal]
     end
   end
 end
