@@ -2,15 +2,21 @@
 <div class="row">
   <div class="col">
     <% unless recipe.preparation_time.nil? || recipe.preparation_time.empty? %>
-      <p class="mb-2"><strong>Preparation time: </strong><%= recipe.preparation_time %></p>
+      <p class="mb-2">
+        <strong>Preparation time: </strong><%= recipe.preparation_time %>
+      </p>
     <% end %>
     <% unless recipe.cooking_time.nil? || recipe.cooking_time.empty? %>
-      <p class="mb-2"><strong>Cooking time: </strong><%= recipe.cooking_time %></p>
+      <p class="mb-2">
+        <strong>Cooking time: </strong><%= recipe.cooking_time %>
+      </p>
     <% end %>
   </div>
   <% if can? :manage, @recipe %>
     <div class="col d-flex justify-content-end form-check form-switch">
-      <label class="form-check-label pe-5 me-3 fs-5" for="public_switch">Public</label>
+      <label class="form-check-label pe-5 me-3 fs-5" for="public_switch"
+        >Public</label
+      >
       <input
         class="form-check-input fs-4"
         type="checkbox"
@@ -24,8 +30,10 @@
 </div>
 <p class="mb-4"><%= recipe.description %></p>
 <% if can? :manage, @recipe %>
-  <div class="row row-cols-auto mx-0 justify-content-between pb-3 border-bottom">
-    <%= button_to "Generate shopping list", "/general_shopping_list", method: :get, class: "btn btn-primary" %>
+  <div
+    class="row row-cols-auto mx-0 justify-content-between pb-3 border-bottom"
+  >
+    <%= button_to "Generate shopping list", general_shopping_list_index_path, params: { recipe_id: recipe.id }, method: :get, class: "btn btn-primary" %>
     <%= button_to "Add ingredient", new_recipe_food_path, params: { recipe_id: recipe.id }, method: :get, class: "btn btn-primary" %>
   </div>
 <% end %>
