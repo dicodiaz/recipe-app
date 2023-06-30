@@ -28,7 +28,9 @@ RSpec.describe 'Recipes', type: :system do
     end
 
     it "displays a 'Remove' button that deletes the recipe" do
-      click_button('Remove')
+      accept_confirm do
+        click_button('Remove')
+      end
       expect(page).to have_content('Recipe was successfully destroyed.')
       expect(page).not_to have_content(@recipe.name)
     end
@@ -113,7 +115,9 @@ RSpec.describe 'Recipes', type: :system do
       end
 
       it "displays a 'Remove' button that deletes the ingredient and refreshes the page" do
-        click_button('Remove')
+        accept_confirm do
+          click_button('Remove')
+        end
         expect(page).to have_current_path(recipe_path(@recipe))
         expect(page).to have_content('Ingredient was successfully destroyed.')
         expect(page).not_to have_content(@recipe_food.food.name)

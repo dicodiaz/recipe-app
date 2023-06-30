@@ -1,11 +1,5 @@
 class RecipeFoodsController < ApplicationController
-  before_action :set_recipe_food, only: %i[show destroy]
-
-  def index
-    @recipe_foods = RecipeFood.all
-  end
-
-  def show; end
+  before_action :set_recipe_food, only: %i[destroy]
 
   def new
     @recipe_food = RecipeFood.new(recipe_id: params[:recipe_id])
@@ -35,7 +29,6 @@ class RecipeFoodsController < ApplicationController
     @recipe_food = RecipeFood.find_by(id: params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def recipe_food_params
     params.require(:recipe_food).permit(:quantity, :recipe_id, :food_id)
   end

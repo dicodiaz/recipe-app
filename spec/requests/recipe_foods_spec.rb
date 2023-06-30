@@ -8,22 +8,6 @@ RSpec.describe '/recipe_foods', type: :request do
   let(:valid_attributes) { { quantity: 2, recipe_id: recipe.id, food_id: food.id } }
   let(:invalid_attributes) { { quantity: nil, recipe_id: recipe.id, food: nil } }
 
-  describe 'GET /index' do
-    it 'renders a successful response' do
-      RecipeFood.create! valid_attributes
-      get recipe_foods_url
-      expect(response).to be_successful
-    end
-  end
-
-  describe 'GET /show' do
-    it 'renders a successful response' do
-      recipe_food = RecipeFood.create! valid_attributes
-      get recipe_food_url(recipe_food)
-      expect(response).to be_successful
-    end
-  end
-
   describe 'GET /new' do
     it 'renders a successful response' do
       get new_recipe_food_url, params: { recipe_id: recipe.id }

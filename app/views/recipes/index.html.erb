@@ -1,8 +1,6 @@
-<main id="recipes" class="container mt-3">
-  <%= button_to "New recipe", new_recipe_path, method: :get, class: "btn btn-primary mb-3" %>
-  <div class="row row-cols-1 px-2 px-md-0">
-    <% @recipes.each do |recipe| %>
-      <%= render('recipe_card', recipe:) %>
-    <% end %>
-  </div>
-</main>
+<%= button_to "New recipe", new_recipe_path, method: :get, class: "btn btn-primary mb-3" %>
+<div class="row row-cols-1 px-2 px-md-0">
+  <% @recipes.each do |recipe| %>
+    <%= render('recipe_card', recipe:) %>
+  <% end %>
+</div>

@@ -26,8 +26,9 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe.destroy
+    return unless @recipe
 
+    @recipe.destroy
     redirect_to recipes_url, alert: 'Recipe was successfully destroyed.'
   end
 
