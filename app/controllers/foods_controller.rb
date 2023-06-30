@@ -1,43 +1,40 @@
 class FoodsController < ApplicationController
-  before_action :set_food, only: %i[show edit update destroy]
+  before_action :set_food, only: %i[show destroy]
 
-  # GET /foods or /foods.json
   def index
     @foods = Food.where(user: current_user)
   end
 
   def show; end
 
-  # GET /foods/new
   def new
     @food = Food.new
   end
 
-  # POST /foods or /foods.json
   def create
     @food = Food.new(food_params)
 
     if @food.save
       redirect_to '/foods', flash: { success: 'Food was successfully created.' }
     else
+      flash.now[:error] = @food.errors.full_messages.to_sentence.prepend('Error(s): ')
       render :new, status: :unprocessable_entity
     end
   end
 
-  # DELETE /foods/1 or /foods/1.json
   def destroy
+    return unless @food
+
     @food.destroy
     redirect_to '/foods', notice: 'Food was successfully destroyed.'
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_food
-    @food = Food.find(params[:id])
+    @food = Food.find_by(id: params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price, :quantity).merge(user: current_user)
   end
