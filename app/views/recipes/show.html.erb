@@ -1,7 +1,5 @@
-<main id="<%= dom_id(@recipe) %>" class="container mt-3">
-  <% if can? :read, @recipe %>
-    <%= render "recipe", recipe: @recipe %>
-  <% else %>
-    <h1 class="text-center">Recipe is private</h1>
-  <% end %>
-</main>
+<% if can? :read, @recipe %>
+  <%= render "recipe", recipe: @recipe %>
+<% else %>
+  <h1 class="text-center">Recipe is private</h1>
+<% end %>

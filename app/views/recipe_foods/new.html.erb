@@ -1,8 +1,6 @@
-<main id="new_ingredient" class="container mt-3">
-  <%= render "form", recipe_food: @recipe_food %>
-  <p class="text-center mb-0">Can't find your ingredient?</p>
-  <div class="d-flex justify-content-center mb-3">
-    <%= button_to "Create new ingredient", new_food_path , method: :get, class: "btn btn-primary" %>
-  </div>
-  <%= button_to "Back to recipe", @recipe_food.recipe , method: :get, class: "btn btn-secondary mb-3" %>
-</main>
+<%= render "form", recipe_food: @recipe_food %>
+<p class="text-center mb-0">Can't find your ingredient?</p>
+<div class="d-flex justify-content-center mb-3">
+  <%= button_to "Create new ingredient", new_food_path , method: :get, class: "btn btn-primary" %>
+</div>
+<%= button_to "Back to recipe", @recipe_food.recipe , method: :get, class: "btn btn-secondary mb-3" %>
